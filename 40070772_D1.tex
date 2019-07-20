@@ -1,0 +1,206 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment}
+\usepackage{lipsum} 
+\usepackage{fullpage}
+\usepackage{graphicx}
+\graphicspath{{C:/Users/suraj/Downloads/}}
+\usepackage{algorithm}
+\begin{document}
+\noindent
+\large\textbf{F4: Logarithmic Function} \\\\
+\normalsize MANIKANDAN SHANMUGAM \hfill SOEN 6011\\
+40070772 \hfill Deliverable 1\\
+\large\textbf{Problem 1} \\
+\section*{Introduction}
+The \textit{exponential function:} $y=b^x$ is a one-to-one function, which means that for each x there is only one y and for each y there is only one x. Functions that are one-to-one have \textit{inverse functions}. \textit{Logarithmic functions} are the inverses of exponential functions.
+
+\subsection*{Definition}
+To express 'y' as a function of 'x' the logarithm was invented. The formal definition of a \textbf{logarithmic function} is,\begin{equation}\log _b \left( x \right)=y\end{equation}The base 'a' logarithm of a positive number 'x' is the exponent you get when you write 'x' as a power of 'a'. This is equivalent to saying "y is the base-b logarithm of x."
+
+\subsection*{Domain and Co-Domain}
+The domain of the logarithmic function $y=\log _b \left( x \right)$ is the set of positive real numbers $(0,\infty)$ with domain restrictions of $x > 0$ and $x\not=1$.\\
+The co-domain is the set of real numbers $(-\infty,\infty)$. 
+
+\subsection*{Characteristics}
+\begin{itemize}
+    \item The function will always have an x-intercept of one, occurring at the ordered pair of $(1,0)$.
+    \item In a logarithmic graph, the "rate of change" increases or decreases across the graph.
+    \item There is no y-intercept with the function since it is asymptotic to the y-axis.
+    \item When $b > 1$, the graph increases and when $0 < b < 1$, the graph decreases.
+\end{itemize}
+\includegraphics{Capture} \includegraphics{Capture1}
+
+\newpage
+\large\textbf{Problem 2}
+\section*{Assumptions}
+\begin{itemize}
+    \item In function $\log _b \left( x \right)=y$, $b$ is a positive real number greater than $0$.
+    \item In function $\log _b \left( x \right)=y$, $x$ is a positive real number greater than $0$ and $\not=1$.
+    \item Function returns a real number value ranging $(-\infty,\infty)$.
+    \item If the inputs are not within the assumption constraints, the function does not give the desired output.
+\end{itemize}
+\section*{Requirements}
+    \begin{enumerate}
+    \item\textbf{First Requirement}
+    \begin{itemize}
+        \item \textsc{ID : }FR1
+        \item \textsc{Type : }Functional Requirement
+        \item \textsc{Version : }1.0
+        \item \textsc{Difficulty : }Easy
+        \item \textsc{Description : }System shall take an input value for $b$ as a base value for the function $\log _b \left( x \right)$.
+        \item \textsc{Rational : }The function $\log _b \left( x \right)$ can not be defined if the base value is not a positive real number inclusive of $0$.
+    \end{itemize}
+    \item\textbf{Second Requirement}
+    \begin{itemize}
+        \item \textsc{ID : }FR2
+        \item \textsc{Type : }Functional Requirement
+        \item \textsc{Version : }1.0
+        \item \textsc{Difficulty : }Easy
+        \item \textsc{Description : }System shall take an input value for $x$ for the function $\log _b \left( x \right)$.
+        \item \textsc{Rational : }The function $\log _b \left( x \right)$ can not be defined if the value of $x$ is not a positive real number inclusive of $0$ exclusive of $1$.
+    \end{itemize}
+    \item\textbf{Third Requirement}
+    \begin{itemize}
+        \item \textsc{ID : }FR3
+        \item \textsc{Type : }Functional Requirement
+        \item \textsc{Version : }1.0
+        \item \textsc{Difficulty : }Nominal
+        \item \textsc{Description : }System shall calculate the output value for the function $\log _b \left( x \right)$ and limit it to two digit values after decimal.
+        \item \textsc{Rational : }The function $\log _b \left( x \right)$ must give desired output and might give an output with endless decimal points.
+    \end{itemize}
+\newpage
+    \item\textbf{Fourth  Requirement}
+    \begin{itemize}
+        \item \textsc{ID : }FR4
+        \item \textsc{Type : }Functional Requirement
+        \item \textsc{Version : }1.0
+        \item \textsc{Difficulty : }Nominal
+        \item \textsc{Description : }System shall not accept an invalid input value other than the input boundaries given in assumption for the function $\log _b \left( x \right)$ and throw an error message.
+        \item \textsc{Rational : }The function $\log _b \left( x \right)$ can not be calculated with inputs outside of the assumptions and invalid inputs (string, character, etc.).
+    \end{itemize}
+    \end{enumerate}
+
+\newpage
+\large\textbf{Problem 3}
+\section*{Pseudo code and Algorithm}
+Calculate: $\log _b \left( x \right)$
+\begin{algorithm}
+\caption{Calculate Log function using Recursion}
+\begin{algorithmic}
+1. \textbf{function} logCalculator(base,x)\\
+\textbf{in: } int number base, double number x\\
+\textbf{out: } double number output\\
+2.  \textbf{if}  \STATE $base > 0$  \textbf{then}\\
+3. \qquad\STATE \textbf{if} $base > 0$  \textbf{then}\\
+4. \qquad\qquad \STATE return $0$\\
+5. \qquad\STATE \textbf{else}\\
+6. \qquad\qquad \STATE return $1+logCalculator(base,int(x/base))$\\
+7. \qquad\STATE \textbf{end}\\
+8. \STATE \textbf{else}\\
+9. \qquad\STATE return $0$\\
+10.\STATE \textbf{end}\\
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Calculate Log function using Loop}
+\begin{algorithmic}
+1. \textbf{function} logCalculator(x)\\
+\textbf{in: } int double number x\\
+\textbf{out: } double number output\\
+2.\STATE $temp \leftarrow (x-1)/(x+3)$\\
+3.\STATE $sum \leftarrow 1$\\
+4.\STATE $temppow \leftarrow temp$\\
+5.\textbf{for} {$n \leftarrow 1,100$} \textbf{do}\\
+6.\qquad\STATE\textbf{if} \STATE n mod 2 \not= 0\\
+7.\qquad\qquad\STATE $sum \leftarrow sum+temppow/n$\\
+8.\qquad\STATE \textbf{end}\\
+9.\qquad\STATE $temppow \leftarrow temppow*temp$\\
+10.\textbf{end for} \\
+11.\STATE $sum \leftarrow sum*2$\\
+12.\STATE return $sum$\\
+13.\STATE \textbf{end}\\
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+
+\newpage
+\subsection*{Advantages and Disadvantages}
+\subsubsection*{Algorithm 1:}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Recursion makes code smaller.
+    \item Recursion is easy to understand, and it has excellent performance on readability.
+    \item In code, the purpose of recursion is clear than loop.
+    \item Recursion has higher maintainability than loop.
+\end{itemize}
+\textbf{Disadvantages:}
+\begin{itemize}
+    \item Recursion repeatedly invokes the mechanism, and consequently the overhead, of method calls. This can be expensive in both processor time and memory space.
+    \item Recursion could lead the problem of memory overflow.
+    \item Infinite recursion can lead to system crash.
+    \item Recursion needs system continuously allocates memory space, thus it has a bad effect on efficiency.
+\end{itemize}
+
+\subsubsection*{Algorithm 2:}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Loop is less expensive to maintain than recursion.
+    \item Loop avoids of memory overflow.
+    \item Loop could avoid memory overflow of input. Thus the value of input is unrestricted.
+    \item Loop needs less time to execute. Besides, it also needs less memory.
+\end{itemize}
+\textbf{Disadvantages:}
+\begin{itemize}
+    \item It uses more parameters, and the structure is more complex than recursion.
+    \item In readability, loop is weak, because of its complex code structure.
+    \item Infinite loop iteration consumes CPU cycles.
+\end{itemize}
+
+\subsubsection*{Conclusion}
+Recursion is generally used because of the fact that it is simpler to implement, and it is usually more ‘elegant’ than iterative solutions. Remember that anything that’s done in recursion can also be done iterative, but with recursion there is generally a performance drawback. But, depending on the problem that you are trying to solve, that performance drawback can be very insignificant – in which case it makes sense to use recursion. With recursion, you also get the added benefit that other programmers can more easily understand your code – which is always a good thing to have. As a result, the recursion is better.
+
+\newpage
+\subsubsection*{Pseudo code for Algorithm 1}
+This program calculates the Logarithmic values for double input value\\ 
+  
+function logCalculate(Argument one, Argument two){ \\
+
+    Calculate the log value of Argument 1(base) and Argument 2(x) by calling the logCalculate function recursively by passing parameters logCalculate(base, x/base)\\
+    
+end \\
+}
+
+In the main function \\
+{   \\
+   print prompt "Input two numbers" \\
+         
+   Take the first number from the user \\
+   Take the second number from the user\\
+  
+   Send the first number and second number to the logCalculate function and print the result to the user \\   
+} 
+
+
+\begin{thebibliography}{9}
+\bibitem{Hotmath}
+Hotmath,\\
+\url{https://www.varsitytutors.com/hotmath/hotmath_help/topics/domain-and-range-of-exponential-and-logarithmic-functions}
+\bibitem{Lograthmic functions}
+Lograthmic functions,\\
+\url{http://www.biology.arizona.edu/biomath/tutorials/Log/Definition.html}
+\bibitem{TutorialsPoint}
+TutorialsPoint,\\
+\url{https://www.tutorialspoint.com/java/lang/math_pow.htm}
+\bibitem{Lograthmic functions}
+Lograthmic functions,\\
+\url{http://www.biology.arizona.edu/biomath/tutorials/Log/Definition.html}
+\bibitem{Chem869Mats}
+Chem869Mats,\\
+\url{http://dwb4.unl.edu/Chem/CHEM869R/CHEM869RMats/Logs/Logs.html}
+
+\end{thebibliography}
+\end{document}
